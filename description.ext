@@ -1,0 +1,68 @@
+// by Quentin
+
+
+/* default template settings */
+// Respawn
+respawnOnStart = -1;	// disable respawn on start
+/*showHUD[] = {
+	true,	// Scripted HUD (same as showHUD command)
+	true,	// Vehicle + soldier info
+	true,	// Vehicle radar
+	true,	// Vehicle compass
+	true,	// Tank direction indicator
+	false,	// Commanding menu
+	false,	// Group Bar
+	true,	// HUD Weapon Cursors
+	true	// HUD Squad Radar
+};*/
+/* default template settings finished */
+
+// W_Teleporter
+#include "W_Teleporter\CfgFunctions.hpp"	// W_Teleporter functions
+#include "W_Teleporter\dialog.hpp"	// W_Teleporter dialog
+
+
+/* Insignia */
+class CfgUnitInsignia
+{
+	class ASCInsignia
+	{
+		displayName = "ASC Insignia"; // Name displayed in Arsenal
+		author = "ArmA Social Club"; // Author displayed in Arsenal
+		texture = "img\asclogo.paa"; // Image path
+	};
+};
+/* end of Insignia */
+
+
+/* Remote Execution */
+class CfgRemoteExec
+{        
+	class Functions
+    {
+        // State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account, 2-turned on, however, ignoring whitelists (default because of backward compatibility)
+        mode = 2;
+        // Ability to send jip messages: 0-disabled, 1-enabled (default)
+        JIP = 1;
+        /*your functions here*/
+		class BIS_fnc_setUnitInsignia
+        {
+			allowedTargets = 0;	// can target anyone (default)
+			JIP = 1;	// sending jip messages is disabled for this function (overrides settings in the Functions class)
+        };
+    };
+	class Commands
+    {
+		class systemChat
+		{
+			allowedTargets = 0;
+			JIP = 1;
+		};
+		class switchMove
+		{
+			allowedTargets = 0;
+			JIP = 1;
+		};
+	};
+};
+/* end of Remote Execution */
