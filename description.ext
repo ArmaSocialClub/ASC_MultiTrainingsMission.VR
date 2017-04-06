@@ -1,68 +1,23 @@
-// by Quentin
+/* -------------------------- Arma Social Club -------------------------- */
+/* --------- description.ext Template-Abschnitt --------- */
+/* Dieser Bereich beinhaltet alle Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
-/* default template settings */
-// Respawn
-respawnOnStart = -1;	// disable respawn on start
-/*showHUD[] = {
-	true,	// Scripted HUD (same as showHUD command)
-	true,	// Vehicle + soldier info
-	true,	// Vehicle radar
-	true,	// Vehicle compass
-	true,	// Tank direction indicator
-	false,	// Commanding menu
-	false,	// Group Bar
-	true,	// HUD Weapon Cursors
-	true	// HUD Squad Radar
-};*/
-/* default template settings finished */
-
-// W_Teleporter
-#include "W_Teleporter\CfgFunctions.hpp"	// W_Teleporter functions
-#include "W_Teleporter\dialog.hpp"	// W_Teleporter dialog
+class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"	
+respawn = "BASE";	// Spieler respawnen an vom Missionsbauer festgelegten Respawnpunkten
+respawnTemplates[] = {"MenuPosition"};	// Spieler können wählen, bei welchem Respawnpunkt sie respawnen (falls der Missionsbauer mehrere Respawnpunkte gesetzt hat)
+respawnDelay = 300;	// Spieler müssen 5 Minuten lang auf ihren Respawn warten
+respawnOnStart = -1;	// sorgt dafür, dass Spieler nicht direkt zu Missionsbeginn respawnen und 5 Minuten warten müssen. Respawnscripte werden ebenfalls nicht ausgeführt
+respawnDialog = 0;	// Scoreboard wird während der Respawn-Wartezeit nicht angezeigt
+aiKills = 0;	// KI wird vom Scoreboard ignoriert
+disableChannels = [0,1,2,3,4,5];	// alle Chatkanäle außer dem Systemchat sind deaktiviert
+corpseManagerMode = 2;	// nur die Leichen gerespawnter Spieler werden mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
+corpseRemovalMinTime = 10;	// nach mindestens 10 Sekunden wird die Leiche eines gerespawnten Spielers mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
+corpseRemovalMaxTime = 3600;	// nach maximal 3600 Sekunden wird die Leiche eines gerespawnten Spielers mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
+minPlayerDistance = 50; // Spieler müssen mindestens 50 Meter von einer Leiche entfernt sein, damit diese gelöscht werden darf
+wreckManagerMode = 0;	// keine Fahrzeuge werden während des Spiels gelöscht
+saving = 0; // Missionsfortschritt wird nicht gespeichert
 
 
-/* Insignia */
-class CfgUnitInsignia
-{
-	class ASCInsignia
-	{
-		displayName = "ASC Insignia"; // Name displayed in Arsenal
-		author = "ArmA Social Club"; // Author displayed in Arsenal
-		texture = "img\asclogo.paa"; // Image path
-	};
-};
-/* end of Insignia */
-
-
-/* Remote Execution */
-class CfgRemoteExec
-{        
-	class Functions
-    {
-        // State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account, 2-turned on, however, ignoring whitelists (default because of backward compatibility)
-        mode = 2;
-        // Ability to send jip messages: 0-disabled, 1-enabled (default)
-        JIP = 1;
-        /*your functions here*/
-		class BIS_fnc_setUnitInsignia
-        {
-			allowedTargets = 0;	// can target anyone (default)
-			JIP = 1;	// sending jip messages is disabled for this function (overrides settings in the Functions class)
-        };
-    };
-	class Commands
-    {
-		class systemChat
-		{
-			allowedTargets = 0;
-			JIP = 1;
-		};
-		class switchMove
-		{
-			allowedTargets = 0;
-			JIP = 1;
-		};
-	};
-};
-/* end of Remote Execution */
+/* --------- description.ext Template-Abschnitt: Ende --------- */
+/* Ab dieser Zeile kannst du deinen eigenen, missionsspezifischen Code unterhalb einfügen */
