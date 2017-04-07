@@ -11,10 +11,7 @@ respawnOnStart = -1;	// sorgt dafür, dass Spieler nicht direkt zu Missionsbegin
 respawnDialog = 0;	// Scoreboard wird während der Respawn-Wartezeit nicht angezeigt
 aiKills = 0;	// KI wird vom Scoreboard ignoriert
 disableChannels = [0,1,2,3,4,5];	// alle Chatkanäle außer dem Systemchat sind deaktiviert
-corpseManagerMode = 2;	// nur die Leichen gerespawnter Spieler werden mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
-corpseRemovalMinTime = 10;	// nach mindestens 10 Sekunden wird die Leiche eines gerespawnten Spielers mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
-corpseRemovalMaxTime = 3600;	// nach maximal 3600 Sekunden wird die Leiche eines gerespawnten Spielers mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
-minPlayerDistance = 50; // Spieler müssen mindestens 50 Meter von einer Leiche entfernt sein, damit diese gelöscht werden darf
+corpseManagerMode = 0;	// weder die Leichen gerespawnter Spieler noch KI-Leichen werden mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
 wreckManagerMode = 0;	// keine Fahrzeuge werden während des Spiels gelöscht
 saving = 0; // Missionsfortschritt wird nicht gespeichert
 
