@@ -14,6 +14,7 @@ disableChannels = [0,1,2,3,4,5];	// alle Chatkanäle außer dem Systemchat sind 
 corpseManagerMode = 0;	// weder die Leichen gerespawnter Spieler noch KI-Leichen werden mitsamt ihrer Ausrüstung im laufenden Spiel gelöscht
 wreckManagerMode = 0;	// keine Fahrzeuge werden während des Spiels gelöscht
 saving = 0; // Missionsfortschritt wird nicht gespeichert
+enableDebugConsole = 1;	// die Adminkonsole ist für den Admin verfügbar (kann unspielbare Missionen per Scriptbefehlen retten)
 
 
 /* --------- description.ext Template-Abschnitt: Ende --------- */
