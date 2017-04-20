@@ -1,6 +1,6 @@
 /* -------------------------- Arma Social Club -------------------------- */
 /* --------- description.ext Template-Abschnitt --------- */
-/* Dieser Bereich beinhaltet alle Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
+/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
 class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"	

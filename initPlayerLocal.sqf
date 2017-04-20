@@ -1,10 +1,10 @@
 /* -------------------------- Arma Social Club -------------------------- */
 /* --------- init.sqf Template-Abschnitt --------- */
-/* Dieser Bereich beinhaltet alle Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
+/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
 
-// setzt die maximale Sichtweite auf 5000 Meter
+// Setzt die maximale Sichtweite auf 5000 Meter
 setViewDistance 5000;
 
 // Chatkanäle deaktivieren (Global, Seite, Gruppe, Direkt, Fahrzeug, Kommando)
@@ -14,6 +14,29 @@ setViewDistance 5000;
 3 enableChannel [false,false];
 4 enableChannel [false,false];
 5 enableChannel [false,false];
+
+// Falls der Spieler ein Sanitäter ist, wird ihm ein entsprechendes Loadout zugewiesen
+waitUntil {!isNull player};
+if (player getUnitTrait "Medic") then
+{
+	player removeItem "FirstAidKit";
+	player removeItem "Medikit";
+	for "_i" from 1 to 2 do {player addItemToBackpack "ACE_fieldDressing";};
+	for "_i" from 1 to 12 do {player addItemToBackpack "ACE_elasticBandage";};
+	for "_i" from 1 to 12 do {player addItemToBackpack "ACE_packingBandage";};
+	for "_i" from 1 to 12 do {player addItemToBackpack "ACE_quikclot";};
+	for "_i" from 1 to 5 do {player addItemToBackpack "ACE_tourniquet";};
+	for "_i" from 1 to 2 do {player addItemToBackpack "ACE_bloodIV_250";};
+	player addItemToBackpack "ACE_bloodIV_500";
+	for "_i" from 1 to 8 do {player addItemToBackpack "ACE_morphine";};
+	for "_i" from 1 to 8 do {player addItemToBackpack "ACE_epinephrine";};
+	for "_i" from 1 to 3 do {player addItemToBackpack "ACE_personalAidKit";};
+	player addItemToBackpack "ACE_surgicalKit";
+};
+
+// Weise dem Spieler ACE-Gegenstände zu
+player addItem "ACE_microDAGR";
+player addItem "ACE_EarPlugs";
 
 // Spieler respawnen mit dem Loadout, das der Missionsbauer ihnen auch mit dem Virtuellen Arsenal zugewiesen hat
 Plyr_Ldt = getUnitLoadout player;
