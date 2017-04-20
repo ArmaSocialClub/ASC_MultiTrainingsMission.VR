@@ -1,5 +1,5 @@
 /* -------------------------- Arma Social Club -------------------------- */
-/* --------- init.sqf Template-Abschnitt --------- */
+/* --------- initPlayerLocal.sqf Template-Abschnitt --------- */
 /* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
@@ -49,5 +49,5 @@ Resp_Ldt_EH = player addEventHandler ["Respawn",{(_this select 0) setUnitLoadout
 
 
 
-/* --------- init.sqf Template-Abschnitt: Ende --------- */
+/* --------- initPlayerLocal.sqf Template-Abschnitt: Ende --------- */
 /* Ab dieser Zeile kannst du deinen eigenen, missionsspezifischen Code unterhalb einfügen */
