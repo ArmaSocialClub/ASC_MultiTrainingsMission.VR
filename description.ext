@@ -1,6 +1,7 @@
 /* -------------------------- Arma Social Club -------------------------- */
-/* --------- description.ext Template-Abschnitt --------- */
-/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
+/* ------------------------- Template-Abschnitt ------------------------- */
+/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. */
+/* VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
 class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"	
@@ -17,7 +18,29 @@ minPlayerDistance = 50; // Spieler müssen mindestens 50 Meter von einer Leiche 
 wreckManagerMode = 0;	// keine Fahrzeuge werden während des Spiels gelöscht
 saving = 0; // Missionsfortschritt wird nicht gespeichert
 enableDebugConsole = 1;	// die Adminkonsole ist für den Admin verfügbar (kann unspielbare Missionen per Scriptbefehl retten)
+class CfgRemoteExec	// bestimmte Funktionen und Befehle können über das Netzwerk verschickt werden
+{
+	class Functions
+	{
+              mode = 2;	// RemoteExec modes: 0 = turned off / 1 = turned on, taking whitelist into account / 2 = turned on, ignoring whitelist (default, because of backward compatibility)
+              jip = 1;	// Ability to send jip messages: 0-disabled, 1-enabled (default)
+              class BIS_fnc_AmbientAnim
+              {
+                     allowedTargets = 0; // wird an jeden Klienten geschickt (1 = nur Klienten, 2 = nur Server)
+                     jip = 1; // gilt auch für JIP
+              };
+	};
+	class Commands
+	{
+		class addCuratorEditableObjects
+		{
+			allowedTargets = 2; // wird nur an den Server geschickt (1 = nur Klienten, 2 = nur Server)
+			jip = 1; // gilt auch für JIP
+		};
+	};
+};
 
 
-/* --------- description.ext Template-Abschnitt: Ende --------- */
+
+/* --------- Template-Abschnitt: Ende --------- */
 /* Ab dieser Zeile kannst du deinen eigenen, missionsspezifischen Code unterhalb einfügen */

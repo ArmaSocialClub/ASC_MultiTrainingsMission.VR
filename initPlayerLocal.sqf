@@ -1,10 +1,11 @@
 /* -------------------------- Arma Social Club -------------------------- */
-/* --------- initPlayerLocal.sqf Template-Abschnitt --------- */
-/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
+/* ------------------------- Template-Abschnitt ------------------------- */
+/* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. */
+/* VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
 
-// Setzt die maximale Sichtweite auf 5000 Meter
+// setzt die maximale Sichtweite auf 5000 Meter
 setViewDistance 5000;
 
 // Chatkanäle deaktivieren (Global, Seite, Gruppe, Direkt, Fahrzeug, Kommando)
@@ -15,7 +16,7 @@ setViewDistance 5000;
 4 enableChannel [false,false];
 5 enableChannel [false,false];
 
-// Falls der Spieler ein Sanitäter ist, wird ihm ein entsprechendes Loadout zugewiesen
+// falls der Spieler ein Sanitäter ist, wird ihm ein entsprechendes Loadout zugewiesen
 waitUntil {!isNull player};
 if (player getUnitTrait "Medic") then
 {
@@ -34,7 +35,7 @@ if (player getUnitTrait "Medic") then
 	if !("ACE_surgicalKit" in (items player)) then {player addItemToBackpack "ACE_surgicalKit";};
 };
 
-// Weise dem Spieler ACE-Gegenstände zu
+// weise dem Spieler ACE-Gegenstände zu
 if !("ACE_microDAGR" in (items player)) then {player addItem "ACE_microDAGR";};
 if !("ACE_EarPlugs" in (items player)) then {player addItem "ACE_EarPlugs";};
 
@@ -49,5 +50,5 @@ Resp_Ldt_EH = player addEventHandler ["Respawn",{(_this select 0) setUnitLoadout
 
 
 
-/* --------- initPlayerLocal.sqf Template-Abschnitt: Ende --------- */
+/* ------------------------- Template-Abschnitt: Ende ------------------------- */
 /* Ab dieser Zeile kannst du deinen eigenen, missionsspezifischen Code unterhalb einfügen */
