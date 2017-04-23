@@ -18,6 +18,7 @@ minPlayerDistance = 50; // Spieler müssen mindestens 50 Meter von einer Leiche 
 wreckManagerMode = 0;	// keine Fahrzeuge werden während des Spiels gelöscht
 saving = 0; // Missionsfortschritt wird nicht gespeichert
 enableDebugConsole = 1;	// die Adminkonsole ist für den Admin verfügbar (kann unspielbare Missionen per Scriptbefehl retten)
+disabledAI = 1;	// freie Slots werden nicht von KI übernommen, sondern bleiben unbesetzt
 class CfgRemoteExec	// bestimmte Funktionen und Befehle können über das Netzwerk verschickt werden
 {
 	class Functions
