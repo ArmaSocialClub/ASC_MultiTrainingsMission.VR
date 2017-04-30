@@ -21,9 +21,18 @@ Plyr_Ldt = getUnitLoadout player;
 Resp_Ldt_EH = player addEventHandler ["Respawn",{(_this select 0) setUnitLoadout [Plyr_Ldt,true];}];
 
 // Missionsintro
-[parseText format ["<t align='right' size='1.2'><t font='PuristaBold' size='1.6'>""%1""<br/></t>
-%2</t>",toUpper briefingName,"by Arma Social Club"],true,nil,7,0.7,0] spawn BIS_fnc_textTiles;	// zeigt zu Missionsbeginn den Missionsnamen an
-0 cutText ["","BLACK IN",5,false];	// blendet zu Missionsbeginn langsam von schwarz ein
+0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
+[
+	[
+		["Willkommen,","align = 'center' shadow = '1' size = '1' font='PuristaBold'"],
+		[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1' font='PuristaBold'","#aaaaaa"],
+		["","<br/>"],
+		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1' font='PuristaBold'","#aaaaaa"],
+		[" präsentiert:","align = 'center' shadow = '1' size = '1' font='PuristaBold'"],
+		["","<br/>"],
+		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '2.5' font='PuristaBold'"]
+	]
+] spawn BIS_fnc_typeText2;
 
 
 
