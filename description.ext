@@ -7,7 +7,7 @@
 class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"	
 respawn = "BASE";	// Spieler respawnen an vom Missionsbauer festgelegten Respawnpunkten
 respawnTemplates[] = {"MenuPosition"};	// Spieler können wählen, bei welchem Respawnpunkt sie respawnen (falls der Missionsbauer mehrere Respawnpunkte gesetzt hat)
-respawnDelay = 300;	// Spieler müssen 5 Minuten lang auf ihren Respawn warten
+respawnDelay = 1;	// Spieler müssen 5 Minuten lang auf ihren Respawn warten
 respawnOnStart = -1;	// sorgt dafür, dass Spieler nicht direkt zu Missionsbeginn respawnen und 5 Minuten warten müssen. Respawnscripts werden ebenfalls nicht ausgeführt
 respawnDialog = 0;	// Scoreboard wird während der Respawn-Wartezeit nicht angezeigt
 aiKills = 0;	// KI wird vom Scoreboard ignoriert
@@ -30,12 +30,32 @@ class CfgRemoteExec	// bestimmte Funktionen und Befehle können über das Netzwe
                      allowedTargets = 0; // wird an jeden Klienten geschickt (1 = nur Klienten, 2 = nur Server)
                      jip = 1; // gilt auch für JIP
               };
+			   class BIS_fnc_AmbientAnimCombat
+              {
+                     allowedTargets = 0; // wird an jeden Klienten geschickt (1 = nur Klienten, 2 = nur Server)
+                     jip = 1; // gilt auch für JIP
+              };
+			   class BIS_fnc_ambientAnim__terminate
+              {
+                     allowedTargets = 0; // wird an jeden Klienten geschickt (1 = nur Klienten, 2 = nur Server)
+                     jip = 1; // gilt auch für JIP
+              };
 	};
 	class Commands
 	{
 		class addCuratorEditableObjects
 		{
 			allowedTargets = 2; // wird nur an den Server geschickt (1 = nur Klienten, 2 = nur Server)
+			jip = 1; // gilt auch für JIP
+		};
+		class switchMove
+		{
+			allowedTargets = 0; // wird an alle Maschinen geschickt (1 = nur Klienten, 2 = nur Server)
+			jip = 1; // gilt auch für JIP
+		};
+		class playMove
+		{
+			allowedTargets = 0; // wird an alle Maschinen geschickt (1 = nur Klienten, 2 = nur Server)
 			jip = 1; // gilt auch für JIP
 		};
 	};
