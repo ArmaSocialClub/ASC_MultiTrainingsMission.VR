@@ -1,5 +1,5 @@
 /* -------------------------- Arma Social Club -------------------------- */
-//* ------------------------- Template-Abschnitt ------------------------- */
+/* ------------------------- Template-Abschnitt ------------------------- */
 /* Dieser Bereich beinhaltet Must-Have-Konfigurationen für eine Mission des Arma Social Club. */
 /* VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 

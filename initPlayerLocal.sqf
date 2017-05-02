@@ -16,21 +16,21 @@ setViewDistance 5000;
 4 enableChannel [true,false];
 5 enableChannel [true,false];
 
-// Spieler respawnen mit dem Loadout, das der Missionsbauer ihnen auch mit dem Virtuellen Arsenal zugewiesen hat
-Plyr_Ldt = getUnitLoadout player;
-Resp_Ldt_EH = player addEventHandler ["Respawn",{(_this select 0) setUnitLoadout [Plyr_Ldt,true];}];
+// Spieler-Loadout
+[] execVM "modules\loadouts\loadouts_initPlayerLocal.sqf";
 
 // Missionsintro
 0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
+sleep 7;
 [
 	[
-		["Willkommen,","align = 'center' shadow = '1' size = '1' font='PuristaBold'"],
-		[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1' font='PuristaBold'","#aaaaaa"],
+		["Willkommen,","align = 'center' shadow = '1' size = '1'"],
+		[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1'","#aaaaaa"],
 		["","<br/>"],
-		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1' font='PuristaBold'","#aaaaaa"],
-		[" präsentiert:","align = 'center' shadow = '1' size = '1' font='PuristaBold'"],
+		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1'","#aaaaaa"],
+		[" präsentiert:","align = 'center' shadow = '1' size = '1'"],
 		["","<br/>"],
-		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '2.5' font='PuristaBold'"]
+		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '2.5'"]
 	]
 ] spawn BIS_fnc_typeText2;
 
