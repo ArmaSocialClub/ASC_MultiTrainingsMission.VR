@@ -21,7 +21,7 @@ setViewDistance 5000;
 
 // Missionsintro
 0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
-sleep 7;
+//sleep 7;
 [
 	[
 		["Willkommen,","align = 'center' shadow = '1' size = '1'"],
@@ -30,7 +30,7 @@ sleep 7;
 		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1'","#aaaaaa"],
 		[" präsentiert:","align = 'center' shadow = '1' size = '1'"],
 		["","<br/>"],
-		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '2.5'"]
+		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '1'"]
 	]
 ] spawn BIS_fnc_typeText2;
 
