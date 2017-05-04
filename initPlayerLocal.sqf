@@ -20,13 +20,13 @@ setViewDistance 5000;
 [] execVM "modules\loadouts\loadouts_initPlayerLocal.sqf";
 
 // Missionsintro
+[player,"Standort: " + worldName + ", Ziel: " + rank player + " " + name player + ", Gruppe: " + (str(group player) select [2])] call BIS_fnc_establishingShot;
 0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
-//sleep 7;
 [
 	[
-		["Willkommen,","align = 'center' shadow = '1' size = '1'"],
+		/*["Willkommen,","align = 'center' shadow = '1' size = '1'"],
 		[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1'","#aaaaaa"],
-		["","<br/>"],
+		["","<br/>"],*/
 		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1'","#aaaaaa"],
 		[" präsentiert:","align = 'center' shadow = '1' size = '1'"],
 		["","<br/>"],

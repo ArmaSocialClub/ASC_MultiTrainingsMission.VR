@@ -27,23 +27,27 @@ waitUntil {!isNull player};
 
 if (player getUnitTrait "Medic") then	// Medic-Loadout
 {
-	//if (backpack player isEqualTo "") then {player addBackpack "B_FieldPack_blk"};
 	{for "_i" from 1 to 12 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];
 	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
 	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
 	player addItem "ACE_tourniquet";
-	player addItem "ACE_surgicalKit";	
+	player addItem "ACE_surgicalKit";
+	// falls der Medic immer noch Platz hat, füge alles noch einmal hinzu
+	{for "_i" from 1 to 12 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
+	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];
+	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
+	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
+	player addItem "ACE_tourniquet";
 }
 else	// Nicht-Medic-Loadout
 {
-	{for "_i" from 1 to 1 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
+	{for "_i" from 1 to 2 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	player addItem "ACE_morphine";
 	player addItem "ACE_tourniquet";
 };
 
 // weise dem Spieler ACE-Gegenstände zu
-//if !("ACE_microDAGR" in (items player)) then {player addItem "ACE_microDAGR";};
 if !("ACE_EarPlugs" in (items player)) then {player addItem "ACE_EarPlugs";};
 
 // Spieler respawnen mit dem nun vollständigen gesamten Loadout
