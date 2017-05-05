@@ -20,7 +20,10 @@ setViewDistance 5000;
 [] execVM "modules\loadouts\loadouts_initPlayerLocal.sqf";
 
 // Missionsintro
-[player,"Standort: " + worldName + ", Ziel: " + rank player + " " + name player + ", Gruppe: " + (str(group player) select [2])] call BIS_fnc_establishingShot;
+if !(typeOf player in ["VirtualCurator_F","B_VirtualCurator_F","C_VirtualCurator_F","I_VirtualCurator_F","O_VirtualCurator_F","VirtualSpectator_F"]) then
+{
+	[player,"Standort: " + worldName + ", Ziel: " + rank player + " " + name player + ", Gruppe: " + (str(group player) select [2])] call BIS_fnc_establishingShot;
+};
 0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
 [
 	[
