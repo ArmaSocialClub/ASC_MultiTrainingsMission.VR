@@ -17,7 +17,10 @@ setViewDistance 5000;
 5 enableChannel [true,false];
 
 // Spieler-Loadout
-[] execVM "modules\loadouts\loadouts_initPlayerLocal.sqf";
+[] execVM "modules\Loadouts\Loadouts_initPlayerLocal.sqf";
+
+// zusätzliche Briefingeinträge
+[] execVM "modules\Briefing\Briefing_initPlayerLocal.sqf";
 
 // Missionsintro
 if (isMultiplayer) then

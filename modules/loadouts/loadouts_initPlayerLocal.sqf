@@ -49,7 +49,13 @@ else	// Nicht-Medic-Loadout
 
 // weise dem Spieler ACE-Gegenstände zu
 if !("ACE_EarPlugs" in (items player)) then {player addItem "ACE_EarPlugs";};
-if ((leader (group player)) isEqualTo player) then {player addItem "ACE_microDAGR"; player addItem "ACE_MapTools";};
+if ((leader (group player)) isEqualTo player) then
+{
+	player addItem "ACE_microDAGR";
+	// füge alle Kartenmarker als Wegpunkte dem microDAGR hinzu
+	{if !(markerText _x isEqualTo "") then {[markerText _x,getMarkerPos _x] call ACE_microDAGR_fnc_deviceAddWaypoint;};} forEach allMapMarkers;
+	player addItem "ACE_MapTools";
+};
 
 // Spieler respawnen mit dem nun vollständigen gesamten Loadout
 Plyr_Ldt = getUnitLoadout player;
