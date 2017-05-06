@@ -20,22 +20,25 @@ setViewDistance 5000;
 [] execVM "modules\loadouts\loadouts_initPlayerLocal.sqf";
 
 // Missionsintro
-if !(typeOf player in ["VirtualCurator_F","B_VirtualCurator_F","C_VirtualCurator_F","I_VirtualCurator_F","O_VirtualCurator_F","VirtualSpectator_F"]) then
+if (isMultiplayer) then
 {
-	[player,"Standort: " + worldName + ", Ziel: " + rank player + " " + name player + ", Gruppe: " + (str(group player) select [2])] call BIS_fnc_establishingShot;
-};
-0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
-[
+	if !(typeOf player in ["VirtualCurator_F","B_VirtualCurator_F","C_VirtualCurator_F","I_VirtualCurator_F","O_VirtualCurator_F","VirtualSpectator_F"]) then
+	{
+		[player,"Standort: " + worldName + ", Ziel: " + rank player + " " + name player + ", Gruppe: " + (str(group player) select [2]),50] call BIS_fnc_establishingShot;
+	};
+	0 cutText ["","BLACK IN",8,false];	// blendet zu Missionsbeginn langsam von schwarz ein
 	[
-		/*["Willkommen,","align = 'center' shadow = '1' size = '1'"],
-		[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1'","#aaaaaa"],
-		["","<br/>"],*/
-		["Der ArmA Social Club","align = 'center' shadow = '1' size = '1'","#aaaaaa"],
-		[" präsentiert:","align = 'center' shadow = '1' size = '1'"],
-		["","<br/>"],
-		[format ["%1",briefingName],"align = 'center' shadow = '1' size = '1'"]
-	]
-] spawn BIS_fnc_typeText2;
+		[
+			/*["Willkommen,","align = 'center' shadow = '1' size = '1'"],
+			[format [" %1 %2!",rank player,name player],"align = 'center' shadow = '1' size = '1'","#aaaaaa"],
+			["","<br/>"],*/
+			["Der ArmA Social Club","align = 'center' shadow = '1' size = '1'","#aaaaaa"],
+			[" präsentiert:","align = 'center' shadow = '1' size = '1'"],
+			["","<br/>"],
+			[format ["%1",briefingName],"align = 'center' shadow = '1' size = '1'"]
+		]
+	] spawn BIS_fnc_typeText2;
+};
 
 
 

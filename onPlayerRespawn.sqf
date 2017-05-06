@@ -9,6 +9,14 @@
 _newUnit = _this select 0;
 {[_x,[[_newUnit],true]] remoteExec ["addCuratorEditableObjects",2]; nil;} count allCurators;
 
+// Aufwachanimation
+if !(secondaryWeapon _newUnit isEqualTo "") then
+{
+	waitUntil {!isNull _newUnit};
+	_newUnit switchMove "Acts_UnconsciousStandUp_part1";
+	_newUnit playMove "Acts_UnconsciousStandUp_part2";
+};
+
 
 
 /* ------------------------- Template-Abschnitt: Ende ------------------------- */
