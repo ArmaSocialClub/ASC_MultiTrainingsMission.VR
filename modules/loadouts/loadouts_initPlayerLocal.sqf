@@ -42,9 +42,9 @@ if (player getUnitTrait "Medic") then	// Medic-Loadout
 }
 else	// Nicht-Medic-Loadout
 {
-	{for "_i" from 1 to 2 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
+	{for "_i" from 1 to 4 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
+	for "_i" from 1 to 2 do {player addItem ACE_tourniquet;
 	player addItem "ACE_morphine";
-	player addItem "ACE_tourniquet";
 };
 
 // weise dem Spieler ACE-Gegenstände zu
