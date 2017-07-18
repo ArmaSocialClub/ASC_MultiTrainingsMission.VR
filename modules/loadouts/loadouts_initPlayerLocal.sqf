@@ -9,6 +9,16 @@
 // warte, bis der Spieler initialisiert ist
 waitUntil {!isNull player};
 
+// weise dem Spieler ACE-Gegenstände zu
+if !("ACE_EarPlugs" in (items player)) then {player addItem "ACE_EarPlugs";};
+if ((leader (group player)) isEqualTo player) then
+{
+	player addItem "ACE_microDAGR";
+	// füge alle Kartenmarker als Wegpunkte dem microDAGR hinzu
+	{if !(markerText _x isEqualTo "") then {[markerText _x,getMarkerPos _x] call ACE_microDAGR_fnc_deviceAddWaypoint;};} forEach allMapMarkers;
+	player addItem "ACE_MapTools";
+};
+
 // entferne alle eventuell extern zugewiesenen ACE-Medical-Items
 {player removeItems _x;} forEach
 	["FirstAidKit",
@@ -31,30 +41,20 @@ if (player getUnitTrait "Medic") then	// Medic-Loadout
 	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];
 	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
 	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
-	player addItem "ACE_tourniquet";
+	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_tourniquet"];
 	player addItem "ACE_surgicalKit";
 	// falls der Medic immer noch Platz hat, füge alles noch einmal hinzu
 	{for "_i" from 1 to 12 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];
-	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
-	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
-	player addItem "ACE_tourniquet";
+	/*{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
+	//{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
+	player addItem "ACE_tourniquet";*/
 }
 else	// Nicht-Medic-Loadout
 {
 	{for "_i" from 1 to 4 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	for "_i" from 1 to 2 do {player addItem "ACE_tourniquet"};
 	player addItem "ACE_morphine";
-};
-
-// weise dem Spieler ACE-Gegenstände zu
-if !("ACE_EarPlugs" in (items player)) then {player addItem "ACE_EarPlugs";};
-if ((leader (group player)) isEqualTo player) then
-{
-	player addItem "ACE_microDAGR";
-	// füge alle Kartenmarker als Wegpunkte dem microDAGR hinzu
-	{if !(markerText _x isEqualTo "") then {[markerText _x,getMarkerPos _x] call ACE_microDAGR_fnc_deviceAddWaypoint;};} forEach allMapMarkers;
-	player addItem "ACE_MapTools";
 };
 
 // Spieler respawnen mit dem nun vollständigen gesamten Loadout
