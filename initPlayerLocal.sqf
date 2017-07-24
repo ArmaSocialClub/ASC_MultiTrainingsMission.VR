@@ -22,6 +22,20 @@ setViewDistance 5000;
 // zusätzliche Briefingeinträge
 [] execVM "modules\Briefing\Briefing_initPlayerLocal.sqf";
 
+// von Zeus gesetzte Einheiten werden auch für andere Zeus sichtbar gemacht
+if (typeOf player in Curators) then
+{
+	// SilentSpike: getAssignedCuratorLogic command will return objNull if used immediately after the curator logic is assigned to the unit in question (this includes at mission time 0). To avoid problems use the following beforehand
+	waitUntil {!isNull (getAssignedCuratorLogic player)};
+	COP_EH = (getAssignedCuratorLogic player) addEventHandler [
+		"CuratorObjectPlaced",
+		{
+			private _entity = _this select 1;
+			{[_x,[[_entity],true]] remoteExec ["addCuratorEditableObjects",2]; nil;} count (allCurators - [getAssignedCuratorLogic player]);
+		}
+	];
+};
+
 // Missionsintro
 if (isMultiplayer) then
 {
@@ -40,7 +54,6 @@ if (isMultiplayer) then
 		]
 	] spawn BIS_fnc_typeText2;
 };
-
 
 
 /* ------------------------- Template-Abschnitt: Ende ------------------------- */
