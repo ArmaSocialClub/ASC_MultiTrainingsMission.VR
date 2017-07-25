@@ -23,7 +23,7 @@ setViewDistance 5000;
 [] execVM "modules\Briefing\Briefing_initPlayerLocal.sqf";
 
 // von Zeus gesetzte Einheiten werden auch für andere Zeus sichtbar gemacht
-if (typeOf player in Curators) then
+if (typeOf player in ["VirtualCurator_F","B_VirtualCurator_F","O_VirtualCurator_F","I_VirtualCurator_F","C_VirtualCurator_F"]) then
 {
 	// SilentSpike: getAssignedCuratorLogic command will return objNull if used immediately after the curator logic is assigned to the unit in question (this includes at mission time 0). To avoid problems use the following beforehand
 	waitUntil {!isNull (getAssignedCuratorLogic player)};
