@@ -39,10 +39,13 @@ if (player getUnitTrait "Medic") then	// Medic-Loadout
 {
 	{for "_i" from 1 to 12 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];
-	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_bloodIV_250","ACE_bloodIV_500"];
-	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];
+	//{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_personalAidKit"];	// PAKs wurden durch die Mod "ADV ACE CPR" überflüssig gemacht
 	{for "_i" from 1 to 3 do {player addItem _x;}} forEach ["ACE_tourniquet"];
 	player addItem "ACE_surgicalKit";
+	{for "_i" from 1 to 4 do {player addItem _x;}} forEach ["ACE_salineIV_250"];
+	{for "_i" from 1 to 2 do {player addItem _x;}} forEach ["ACE_salineIV_500","ACE_bloodIV_250"];
+	{player addItem _x;} forEach ["ACE_bloodIV_500"];
+	
 	// falls der Medic immer noch Platz hat, füge alles noch einmal hinzu
 	{for "_i" from 1 to 12 do {player addItem _x;}} forEach ["ACE_elasticBandage","ACE_packingBandage","ACE_fieldDressing","ACE_quikclot"];
 	{for "_i" from 1 to 8 do {player addItem _x;}} forEach ["ACE_morphine","ACE_epinephrine"];

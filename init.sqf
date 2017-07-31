@@ -4,18 +4,11 @@
 /* VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
-
-// ein respawnender Spieler wird für Zeuse erneut sichtbar gemacht
-_newUnit = _this select 0;
-{[_x,[[_newUnit],true]] remoteExec ["addCuratorEditableObjects",2]; nil;} count allCurators;
-
-// Aufwachanimation
-/*if !(handgunWeapon _newUnit isEqualTo "") then
-{
-	waitUntil {!isNull _newUnit};
-	_newUnit switchMove "Acts_UnconsciousStandUp_part1";
-	_newUnit playMove "Acts_UnconsciousStandUp_part2";
-};*/
+/* Konfiguration der Mod "ACE ADV CPR" */
+// Jeder kann wiederbeleben
+adv_aceCPR_onlyDoctors = 0;
+// Wiederbelebungschance [Doktor, Sanitäter, Standardsoldat]
+adv_aceCPR_probabilities = [20,10,5];    // the first entry is for ace_medical_medicClass == 2, the second for == 1 and the third for regular units with ace_medical_medicClass == 0.
 
 
 /* ------------------------- Template-Abschnitt: Ende ------------------------- */

@@ -4,7 +4,7 @@
 /* VERÄNDERE KEINEN CODE IN DIESEM ABSCHNITT! DIE MISSION KANN DADURCH UNSPIELBAR WERDEN! */
 
 
-class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"	
+/*class Header {gameType = Coop;};	// definiert den Spielmodus als "Kooperatives Szenario"*/ // abgeschafft mit Einführung des Zeus Cooperative Scenario - Modus
 respawn = "BASE";	// Spieler respawnen an vom Missionsbauer festgelegten Respawnpunkten
 respawnTemplates[] = {"MenuPosition"};	// Spieler können wählen, bei welchem Respawnpunkt sie respawnen (falls der Missionsbauer mehrere Respawnpunkte gesetzt hat)
 respawnDelay = 1;	// Spieler müssen 5 Minuten lang auf ihren Respawn warten
